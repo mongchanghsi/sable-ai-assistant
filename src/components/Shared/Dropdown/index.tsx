@@ -1,4 +1,5 @@
-import React, { SelectHTMLAttributes, forwardRef } from "react";
+import { SelectHTMLAttributes, forwardRef } from "react";
+import "./style.css";
 
 type Option = {
   label: string;
@@ -12,11 +13,7 @@ type DropdownProps = SelectHTMLAttributes<HTMLSelectElement> & {
 const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
   ({ options, className = "", ...props }, ref) => {
     return (
-      <select
-        ref={ref}
-        className={`w-full p-2 border rounded-lg text-sm text-black bg-white focus:outline-none ${className}`}
-        {...props}
-      >
+      <select ref={ref} className={`dropdown ${className}`} {...props}>
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>
             {opt.label}

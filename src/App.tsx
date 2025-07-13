@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Models } from "./lib/model";
 import Textarea from "./components/Shared/Textarea";
 import Dropdown from "./components/Shared/Dropdown";
+import "./main.css";
 
 function App() {
   const [apiKey, setApiKey] = useState<string>("");
@@ -21,14 +22,14 @@ function App() {
   };
 
   return (
-    <div className="w-[300px] p-4 flex flex-col gap-4 bg-[#ffffff]">
-      <div className="flex flex-col gap-2">
-        <label className="text-sm text-black">API Key:</label>
+    <div className="container">
+      <div className="form-group">
+        <label className="label">API Key:</label>
         <Textarea value={apiKey} onChange={(e) => setApiKey(e.target.value)} />
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label className="text-sm text-black">Model:</label>
+      <div className="form-group">
+        <label className="label">Model:</label>
         <Dropdown
           options={Models}
           value={model}
@@ -36,10 +37,7 @@ function App() {
         />
       </div>
 
-      <button
-        className="w-full bg-blue rounded-xl p-2 bg-gray-700 text-white"
-        onClick={handleSave}
-      >
+      <button className="save-button" onClick={handleSave}>
         Save
       </button>
     </div>
