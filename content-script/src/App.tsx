@@ -8,6 +8,8 @@ import ChatProfile from "./components/ChatProfile";
 import { TYPING_DURATION_PER_LETTER, Z_INDEX } from "./lib/constants";
 import { Message } from "./lib/types";
 import ChatHistory from "./components/ChatHistory";
+import "./main.css";
+import "./reset.css";
 
 function App() {
   const [sableConfig, setSableConfig] = useState<{
@@ -102,30 +104,29 @@ function App() {
   return (
     <>
       <div
-        className="fixed bottom-10 right-10 h-10 w-10 bg-red rounded-full flex items-center justify-center bg-[#f2eae0] cursor-pointer"
+        className="init"
         style={{ zIndex: Z_INDEX }}
         onClick={() => setVisible((prevState) => !prevState)}
       >
         <img
           src={ENCODE_SVG(visible ? CROSS_ICON : SABLE_HEAD_IMAGE)}
           alt="Modal Button"
-          className="h-6 w-6"
         />
       </div>
 
       <div
-        className="fixed bottom-[88px] right-10 bg-white rounded-xl transition-all duration-500 ease-in-out origin-bottom-right overflow-hidden"
+        className="chat-widget"
         style={{
           zIndex: Z_INDEX,
-          opacity: visible ? 100 : 0,
+          opacity: visible ? 1 : 0,
           width: visible ? "300px" : "0px",
           height: visible ? "450px" : "0px",
         }}
       >
-        <div className="relative flex h-full w-full flex-col">
+        <div className="chat-widget-inner">
           <ChatProfile status={sableConfig.apiKey ? "working" : "snoozing"} />
           <ChatHistory data={chatHistory} agentResponding={agentResponding} />
-          <div className="relative w-full p-2 border-t border-solid border-gray-200">
+          <div className="chat-widget-footer">
             <ExpandingTextarea
               ref={textareaRef}
               value={text}
@@ -135,13 +136,13 @@ function App() {
               icon={
                 <button
                   onClick={handleSubmit}
-                  className=" h-6 w-6 disabled:bg-gray-200 bg-gray-700 flex items-center justify-center rounded-full"
+                  className="send-button"
                   disabled={text.trim().length === 0 || agentResponding}
                 >
                   <img
                     src={ENCODE_SVG(UP_ICON)}
                     alt="Send"
-                    className="h-4 w-4"
+                    className="send-icon"
                     style={{ filter: "invert(100%) brightness(1000%)" }}
                   />
                 </button>

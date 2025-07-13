@@ -5,6 +5,7 @@ import React, {
   TextareaHTMLAttributes,
   ReactNode,
 } from "react";
+import "./style.css";
 
 type ExpandingTextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   icon?: ReactNode;
@@ -53,14 +54,14 @@ const ExpandingTextarea = forwardRef<
     };
 
     return (
-      <div className="relative w-full">
+      <div className="resizable-textarea-container">
         <textarea
           {...props}
           ref={internalRef}
           rows={rows}
           onInput={handleInput}
           onKeyDown={handleKeyDown}
-          className={`w-full pr-8 resize-none overflow-y-auto p-2 border rounded-lg leading-snug bg-transparent text-sm text-black scrollbar-none focus:outline-none ${className || ""}`}
+          className={`resizable-textarea ${className || ""}`}
           style={{
             height: "auto",
             maxHeight: "120px", // ~5 lines of 24px
@@ -70,11 +71,7 @@ const ExpandingTextarea = forwardRef<
           }}
         />
 
-        {icon && (
-          <div className="absolute right-2 top-[45%] -translate-y-1/2">
-            {icon}
-          </div>
-        )}
+        {icon && <div className="textarea-icon">{icon}</div>}
       </div>
     );
   }
