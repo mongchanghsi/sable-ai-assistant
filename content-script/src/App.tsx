@@ -9,7 +9,6 @@ import { TYPING_DURATION_PER_LETTER, Z_INDEX } from "./lib/constants";
 import { Message } from "./lib/types";
 import ChatHistory from "./components/ChatHistory";
 import "./main.css";
-import "./reset.css";
 
 function App() {
   const [sableConfig, setSableConfig] = useState<{
