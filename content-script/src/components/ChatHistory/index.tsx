@@ -1,7 +1,8 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import usePrevious from "../../hooks/usePrevious";
 import { Message } from "../../lib/types";
 import ChatBubble from "../ChatBubble";
+import "./style.css";
 
 const ChatHistory = ({
   data,
@@ -62,29 +63,12 @@ const ChatHistory = ({
   }, []);
 
   return (
-    <>
-      <style>
-        {`
-          .history-container::-webkit-scrollbar-track {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-          }
-        `}
-      </style>
-
-      <div
-        ref={containerRef}
-        className="history-container flex flex-1 flex-col w-full overflow-y-auto overflow-x-hidden p-2 gap-2"
-      >
-        {data.map((i) => (
-          <ChatBubble key={i.id} data={i} />
-        ))}
-        <div ref={bottomRef} />
-      </div>
-    </>
+    <div ref={containerRef} className="history-container">
+      {data.map((i) => (
+        <ChatBubble key={i.id} data={i} />
+      ))}
+      <div ref={bottomRef} />
+    </div>
   );
 };
 

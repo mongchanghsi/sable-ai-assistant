@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { Message } from "../../lib/types";
 import { TYPING_DURATION_PER_LETTER } from "../../lib/constants";
+import "./style.css";
 
 // const ChatBubble = ({ data }: { data: Message }) => {
 //   return (
@@ -100,27 +101,17 @@ const ChatBubble = ({ data }: { data: Message }) => {
   return (
     <div
       className={clsx(
-        "flex items-end px-3",
-        isSelf ? "justify-end" : "justify-start"
+        "chat-bubble-container",
+        isSelf ? "self-align" : "other-align"
       )}
     >
-      <div className="relative max-w-[75%]">
+      <div className="bubble-wrapper">
         <div
-          className={clsx(
-            "relative rounded-lg py-2 px-3 text-sm shadow whitespace-pre-line break-words",
-            isSelf
-              ? "bg-blue-500 text-white rounded-br-none"
-              : "bg-gray-200 text-gray-800 rounded-bl-none"
-          )}
+          className={clsx("bubble", isSelf ? "self-bubble" : "other-bubble")}
         >
           {displayedText}
           <div
-            className={clsx(
-              "absolute w-2 h-2 rotate-45",
-              isSelf
-                ? "bg-blue-500 bottom-[2px] -right-1"
-                : "bg-gray-200 bottom-[2px] -left-1"
-            )}
+            className={clsx("bubble-tail", isSelf ? "self-tail" : "other-tail")}
           />
         </div>
       </div>

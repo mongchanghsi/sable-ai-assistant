@@ -1,0 +1,27 @@
+.textarea {
+  width: 100%;
+  padding: 8px;
+  padding-right: 32px;
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  font-size: 14px;
+  line-height: 1.375;
+  color: #000000;
+
+  background: transparent;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.textarea {
+  scrollbar-width: none;
+}

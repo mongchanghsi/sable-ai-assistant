@@ -1,0 +1,28 @@
+.history-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.history-container::-webkit-scrollbar-track {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.history-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.history-container {
+  scrollbar-width: none;
+}

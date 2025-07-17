@@ -1,0 +1,11 @@
+.dropdown {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #000000;
+  background-color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+}

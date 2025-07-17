@@ -1,0 +1,38 @@
+.resizable-textarea-container {
+  position: relative;
+  width: 100%;
+}
+
+.resizable-textarea {
+  width: 100%;
+  padding: 8px;
+  padding-right: 32px;
+  resize: none;
+  overflow-y: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  line-height: 1.5;
+  background-color: transparent;
+  font-size: 14px;
+  color: #000000;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.resizable-textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.resizable-textarea {
+  scrollbar-width: none;
+}
+
+.textarea-icon {
+  position: absolute;
+  right: 8px;
+  top: 45%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
