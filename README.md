@@ -1,13 +1,13 @@
 # Sable AI Assistant
 
-Give AI some tasks and they will help you to call the specific backend services and perform actions on them
+A browser-injected chatbot interface powered by a LLM via the OpenRouter API. The chatbot intelligently parses user conversations and triggers contextual tool_calls functions, enabling seamless integration with backend services for dynamic, action-oriented responses within any web environment.
 
 ## How to use
 
 1. Perform `npm run build`
 2. Go to Chrome Extension and import the `dist` folder
 3. Within the Extension Pop up, add in your OpenRouter API Key and select the model
-4. Ensure that your OpenRouter has sufficient credits if you want to use ChatGPT model (at the moment only ChatGPT models support toot_calls)
+4. Ensure that your OpenRouter has sufficient credits if you want to use ChatGPT model (at the moment only ChatGPT models support tool_calls)
 
 ## Connect your own backend functionality
 
