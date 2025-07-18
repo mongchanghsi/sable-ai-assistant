@@ -2,6 +2,20 @@
 
 A browser-injected chatbot interface powered by a LLM via the OpenRouter API. The chatbot intelligently parses user conversations and triggers contextual tool_calls functions, enabling seamless integration with backend services for dynamic, action-oriented responses within any web environment.
 
+<p align="center">
+  <img src="public/demo/chat-popup.jpg" alt="Chat Popup" width="300"/>
+  <br/>
+  <em>Figure 1: User is able to interact with the bot like creating a task</em>
+</p>
+
+<hr/>
+
+<p align="center">
+  <img src="public/demo/extension-popup.jpg" alt="Chrome Extension Popup" width="300"/>
+  <br/>
+  <em>Figure 2: User may key in their OpenRouter API Key and to select which model that they want to use</em>
+</p>
+
 ## How to use
 
 1. Perform `npm run build`
