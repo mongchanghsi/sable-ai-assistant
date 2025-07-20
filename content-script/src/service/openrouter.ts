@@ -131,32 +131,7 @@ class OpenRouter {
         );
 
         const toolsResult = assistantMessage.tool_calls.map(async (tc) => {
-          // const ok = checkArgsExistWithinPrompt(
-          //   tc.function.name,
-          //   prompt,
-          //   JSON.parse(tc.function.arguments)
-          // );
-          // console.log("checkArgsExistWithinPrompt", ok);
-
-          // if (
-          //   !checkArgsExistWithinPrompt(
-          //     tc.function.name,
-          //     prompt,
-          //     JSON.parse(tc.function.arguments)
-          //   )
-          // ) {
-          //   console.log("Arguments doesn't exist");
-          //   return {
-          //     tool_call_id: tc.id,
-          //     tool_name: tc.function.name,
-          //     toolResponse: {
-          //       toolName: tc.function.name,
-          //       output:
-          //         "Insufficient information to create task. Please provide description and deadline for the task.",
-          //     },
-          //   };
-          // }
-
+          // If model not smart enough, may require to add in checkArgsExistWithinPrompt to check whether the arguments that the model think of exist within the prompt
           const toolResponse = await executeToolCall(
             tc.function.name,
             tc.function.arguments

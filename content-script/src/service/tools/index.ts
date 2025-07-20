@@ -1,45 +1,18 @@
 import { ToolsName } from "./schema";
 
-export const checkArgsExistWithinPromptV2 = (
+/**
+ * Usage:
+ * checkArgsExistWithinPrompt(
+ *   tc.function.name,
+ *   prompt,
+ *   JSON.parse(tc.function.arguments)
+ * );
+ */
+export const checkArgsExistWithinPrompt = (
   toolName: string,
   prompt: string,
   args: any
-) => {
-  const p = prompt.toLowerCase();
-
-  const normalize = (str: string) =>
-    str
-      .toLowerCase()
-      .replace(/[^\w\s]/g, "")
-      .trim();
-
-  const roughlyContains = (text: string, value?: string): boolean => {
-    if (!value) return false;
-    const normVal = normalize(value);
-    const pattern = normVal
-      .split(/\s+/)
-      .map((word) => `(?=.*\\b${escapeRegex(word)}\\b)`)
-      .join("");
-    const regex = new RegExp(`${pattern}`, "i");
-    return regex.test(p);
-  };
-
-  switch (toolName) {
-    case ToolsName.CREATE_TASK:
-      return (
-        roughlyContains(p, args.description) &&
-        roughlyContains(p, args.deadline)
-      );
-    default:
-      return false;
-  }
-};
-
-export function checkArgsExistWithinPrompt(
-  toolName: string,
-  prompt: string,
-  args: any
-): boolean {
+): boolean => {
   const normalize = (str: string) =>
     str
       .toLowerCase()
@@ -78,7 +51,7 @@ export function checkArgsExistWithinPrompt(
     default:
       return false;
   }
-}
+};
 
 const escapeRegex = (str: string): string => {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
